@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham Prasad - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+
+    .typing {
+      color: #f9f871;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .profile {
+      text-align: center;
+      margin: 30px auto;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #0083b0;
+      object-fit: cover;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-buttons a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: #0083b0;
+      transition: background-color 0.3s ease;
+    }
+
+    .social-buttons a:hover {
+      background-color: #005f73;
+    }
+
+    section {
+      padding: 30px;
+      background-color: white;
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0083b0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shubham Prasad</h1>
+    <p class="typing" id="typing"></p>
+  </header>
+
+  <div class="profile">
+    <img src="https://i.imgur.com/0FEQYyA.jpeg" alt="Shubham Prasad">
+    <div class="social-buttons">
+      <a href="https://www.linkedin.com/in/shubhamprasadg?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://www.facebook.com/share/1HZhM5xFs3/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.instagram.com/shubham_prasad2501?igsh=djF2Y3pxeXh4aGZr" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://share.google/IXsjy4xOxkNLoMo3g" target="_blank"><i class="fab fa-x-twitter"></i> Twitter/X</a>
+      <a href="mailto:saurabhshubhamgupta12@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>About Me</h2>
+    <p>I am Shubham Prasad, a B.Tech student in Computer Science and Engineering at Dumka Engineering College. I am passionate about learning new technologies, building solutions, and exploring the world of software development.</p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <p>[You can showcase your GitHub projects or portfolio apps here]</p>
+  </section>
+
+  <section>
+    <h2>Blog</h2>
+    <p>[Add your latest blog entries or tech articles here]</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Shubham Prasad | All rights reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed("#typing", {
+      strings: [
+        "Hi, I'm Shubham Prasad",
+        "B.Tech CSE Student",
+        "Frontend Developer",
+        "Learning Backend too!"
+      ],
+      typeSpeed: 60,
+      backSpeed: 30,
+      loop: true
+    });
+  </script>
+
+</body>
+</html>

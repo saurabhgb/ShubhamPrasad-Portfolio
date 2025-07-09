@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shubham Prasad | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    header {
+      background: #161b22;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #8b949e;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #58a6ff;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .hero .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #238636;
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+
+    .about, .education, .blog, .contact {
+      border-top: 1px solid #30363d;
+    }
+
+    h3 {
+      color: #58a6ff;
+      margin-bottom: 15px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .skill {
+      background-color: #161b22;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .footer {
+      background-color: #161b22;
+      color: #8b949e;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    img.placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: #30363d;
+      display: block;
+      margin: 20px auto;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      .hero h2 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shubham Prasad</h1>
+    <p>B.Tech CSE Student | Dumka Engineering College</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Hello! I'm Shubham</h2>
+    <p>Welcome to my digital portfolio. Passionate about code, technology, and growth.</p>
+    <div>
+      <a href="https://www.linkedin.com/in/shubhamprasadg?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+        <button class="btn">View LinkedIn</button>
+      </a>
+      <button class="btn">Download Resume</button>
+    </div>
+    <img src="#" alt="Upload Your Photo Here" class="placeholder">
+  </section>
+
+  <section class="about" id="about">
+    <h3>About Me</h3>
+    <p>I am Shubham Prasad, currently pursuing B.Tech in Computer Science and Engineering at Dumka Engineering College. I have a deep interest in software development, problem-solving, and constantly enhancing my technical skillset through real-world projects and continuous learning.</p>
+  </section>
+
+  <section class="skills" id="skills">
+    <h3>Skills</h3>
+    <div class="skill"><strong>Python</strong></div>
+    <div class="skill"><strong>HTML & CSS</strong></div>
+    <div class="skill"><strong>Java</strong></div>
+    <div class="skill"><strong>Problem Solving</strong></div>
+    <div class="skill"><strong>Git & GitHub</strong></div>
+    <div class="skill"><strong>Data Structures</strong></div>
+  </section>
+
+  <section class="education" id="education">
+    <h3>Education</h3>
+    <p><strong>Bachelor of Technology (B.Tech)</strong><br>
+    Branch: Computer Science and Engineering<br>
+    College: Dumka Engineering College<br>
+    Year: 2021–2025 (Expected)</p>
+  </section>
+
+  <section class="projects" id="projects">
+    <h3>Projects</h3>
+    <p>Coming Soon... You can list your GitHub projects here when ready.</p>
+  </section>
+
+  <section class="blog" id="blog">
+    <h3>Recent Blog</h3>
+    <p>Stay tuned! I’ll be sharing my experiences and technical learnings soon.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3>Contact</h3>
+    <p>Email and contact form integration coming soon. For now, you can reach me via LinkedIn.</p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Shubham Prasad | Designed with ❤️</p>
+  </footer>
+
+</body>
+</html>
