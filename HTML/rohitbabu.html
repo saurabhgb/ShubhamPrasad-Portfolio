@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Rohit Kumar Ojha" />
+  <title>Rohit Kumar Ojha - Portfolio</title>
+  <meta name="description" content="Portfolio of Rohit Kumar Ojha - B.Tech CSE Student at Dumka Engineering College" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #00b4db, #0077b6, #ff6f61, #f9f871);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      animation: fadeInDown 1s ease both;
+    }
+
+    .typing {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #f9f871;
+      margin-top: 8px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile {
+      text-align: center;
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .profile img:hover {
+      transform: rotate(10deg) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .socials {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .socials a {
+      background: linear-gradient(to right, #0077b6, #00b4db);
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .socials a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.2);
+      transition: height 0.4s ease;
+    }
+
+    .socials a:hover::after {
+      height: 100%;
+    }
+
+    .socials a:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.8);
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    section h2 {
+      color: #0077b6;
+      font-size: 26px;
+    }
+
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .project-card {
+      flex: 1 1 250px;
+      max-width: 300px;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      background: white;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Rohit Kumar Ojha</h1>
+    <p class="typing" id="typing"></p>
+  </header>
+
+  <div class="profile" data-aos="zoom-in">
+    <img src="https://i.imgur.com/BMbHGE3.jpeg" alt="Profile picture of Rohit Kumar Ojha wearing a blue shirt and glasses">
+    <p>B.Tech CSE | Dumka Engineering College | Session 2024–28</p>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/rohit-kumar-ojha-9350b4374" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of Rohit Kumar Ojha"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://www.facebook.com/share/1BNCYRt9se/" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile of Rohit Kumar Ojha"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.instagram.com/rising_monster1" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile of Rohit Kumar Ojha"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="mailto:rohitdihari@gmail.com" aria-label="Email Rohit Kumar Ojha"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+  </div>
+
+  <main>
+    <section data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I am Rohit Kumar Ojha, a B.Tech student in Computer Science and Engineering at Dumka Engineering College. I'm passionate about programming, solving real-world problems, and consistently learning new technologies.</p>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Weather App</h3>
+          <p>A web app that fetches weather data using OpenWeatherMap API. Built with HTML, CSS, JavaScript.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>My personal portfolio to showcase projects and skills. Built using HTML, CSS, JavaScript.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Blog</h2>
+      <p>Coming soon: Articles and ideas related to technology, coding, and college life!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contact: rohitdihari@gmail.com | +91 6200123185</p>
+    <p>© 2025 Rohit Kumar Ojha | All rights reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200 });
+    var typed = new Typed("#typing", {
+      strings: [
+        "Hi, I'm Rohit Kumar Ojha",
+        "B.Tech CSE Student",
+        "Future Full-Stack Developer",
+        "Lifelong Learner"
+      ],
+      typeSpeed: 60,
+      backSpeed: 30,
+      loop: true
+    });
+  </script>
+
+  <noscript>Your browser does not support JavaScript or it is disabled. Some features may not work properly.</noscript>
+
+</body>
+</html>

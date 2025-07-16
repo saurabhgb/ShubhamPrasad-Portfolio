@@ -4,26 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shubham Prasad - Portfolio</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Shubham Prasad, a B.Tech CSE student passionate about development and technology.">
+  <meta name="keywords" content="Shubham Prasad, portfolio, web developer, B.Tech CSE, Dumka Engineering College">
+  <meta name="author" content="Shubham Prasad">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Shubham Prasad - Portfolio">
+  <meta property="og:description" content="B.Tech CSE student passionate about development and technology.">
+  <meta property="og:image" content="https://i.imgur.com/0FEQYyA.jpeg">
+  <meta property="og:url" content="https://your-portfolio-link.com">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
   <style>
+    :root {
+      --bg: #f0f2f5;
+      --text: #333;
+      --primary: #0083b0;
+      --primary-light: #00b4db;
+      --header: linear-gradient(to right, #00b4db, #0083b0);
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --primary: #4dd0e1;
+      --primary-light: #26c6da;
+      --header: linear-gradient(to right, #212121, #263238);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background: #f0f2f5;
-      color: #333;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      background: linear-gradient(to right, #00b4db, #0083b0);
+      background: var(--header);
       color: white;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -36,6 +74,18 @@
       font-size: 1.2em;
     }
 
+    .toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: var(--primary-light);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
     .profile {
       text-align: center;
       margin: 30px auto;
@@ -45,7 +95,7 @@
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      border: 5px solid #0083b0;
+      border: 5px solid var(--primary);
       object-fit: cover;
     }
 
@@ -62,12 +112,27 @@
       color: white;
       padding: 10px 20px;
       border-radius: 30px;
-      background-color: #0083b0;
+      background-color: var(--primary);
       transition: background-color 0.3s ease;
     }
 
     .social-buttons a:hover {
       background-color: #005f73;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin: 15px auto;
+      padding: 10px 20px;
+      background-color: var(--primary-light);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: var(--primary);
     }
 
     section {
@@ -79,65 +144,119 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
+    [data-theme="dark"] section {
+      background-color: #1e1e1e;
+    }
+
+    .project-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    }
+
+    .project-card a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .bar {
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .bar div {
+      background: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    form button {
+      padding: 10px;
+      background-color: var(--primary-light);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: var(--primary);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background: #0083b0;
+      background: var(--primary);
       color: white;
+    }
+
+    footer a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .social-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
-<body>
+<body data-theme="light">
 
-  <header>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header data-aos="fade-down">
     <h1>Shubham Prasad</h1>
     <p class="typing" id="typing"></p>
   </header>
 
-  <div class="profile">
+  <div class="profile" data-aos="zoom-in">
     <img src="https://i.imgur.com/0FEQYyA.jpeg" alt="Shubham Prasad">
     <div class="social-buttons">
-      <a href="https://www.linkedin.com/in/shubhamprasadg?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://www.facebook.com/share/1HZhM5xFs3/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-      <a href="https://www.instagram.com/shubham_prasad2501?igsh=djF2Y3pxeXh4aGZr" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://share.google/IXsjy4xOxkNLoMo3g" target="_blank"><i class="fab fa-x-twitter"></i> Twitter/X</a>
+      $1 rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      $1 rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+      $1 rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
+      $1 rel="noopener"><i class="fab fa-x-twitter"></i> Twitter/X</a>
       <a href="mailto:saurabhshubhamgupta12@gmail.com"><i class="fas fa-envelope"></i> Email</a>
     </div>
+    <a href="/mnt/data/Shubham%20Resume%20Creative%20NEW.pdf" download class="resume-btn"><i class="fas fa-download"></i> Download Resume</a>
   </div>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I am Shubham Prasad, a B.Tech student in Computer Science and Engineering at Dumka Engineering College. I am passionate about learning new technologies, building solutions, and exploring the world of software development.</p>
-  </section>
+  
 
-  <section>
-    <h2>Projects</h2>
-    <p>[You can showcase your GitHub projects or portfolio apps here]</p>
-  </section>
-
-  <section>
-    <h2>Blog</h2>
-    <p>[Add your latest blog entries or tech articles here]</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Shubham Prasad | All rights reserved</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    var typed = new Typed("#typing", {
-      strings: [
-        "Hi, I'm Shubham Prasad",
-        "B.Tech CSE Student",
-        "Frontend Developer",
-        "Learning Backend too!"
-      ],
-      typeSpeed: 60,
-      backSpeed: 30,
-      loop: true
-    });
+    function toggleTheme() {
+      const root = document.documentElement;
+      const currentTheme = root.getAttribute('data-theme');
+      root.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    }
   </script>
-
 </body>
 </html>
