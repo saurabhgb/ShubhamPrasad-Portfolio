@@ -1,8 +1,9 @@
-
+// Toggle Dark Mode
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
-// 👇 Dynamic Markdown Blog Rendering
+
+// Dynamic Markdown Blog Rendering
 document.addEventListener("DOMContentLoaded", () => {
   fetch("blog/my-btech-journey.md")
     .then(res => res.text())
