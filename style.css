@@ -96,16 +96,15 @@ section {
 }
 
 #about {
-  background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+  background: linear-gradient(135deg, #d1f2eb, #a3e4d7);
 }
 
 #projects {
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffe0b2, #ffcc80);
 }
 
 #blog {
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
 }
 
 #contact {

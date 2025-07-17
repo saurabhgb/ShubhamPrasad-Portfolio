@@ -23,3 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
         blogContainer.textContent = "Could not load blog content.";
     });
 });
+// Animate sections on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'slideFadeIn 1s ease forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+});
+
+document.querySelectorAll('section').forEach(section => {
+  observer.observe(section);
+});
