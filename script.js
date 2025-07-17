@@ -12,10 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(markdown => {
       const html = marked.parse(markdown);
-      document.getElementById("blog-content").innerHTML = html;
+      const blogEl = document.getElementById("blog-content");
+      blogEl.innerHTML = html;
+      blogEl.style.opacity = 1;  // 👈 Fade in animation trigger
     })
     .catch(error => {
       console.error("Error loading blog:", error);
-      document.getElementById("blog-content").textContent = "Could not load blog content.";
+      const blogContainer = document.getElementById("blog-content");
+      if (blogContainer)
+        blogContainer.textContent = "Could not load blog content.";
     });
 });

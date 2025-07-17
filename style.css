@@ -97,3 +97,7 @@ body {
 .btn:hover {
   background-color: #f9f871;
 }
+#blog-content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
