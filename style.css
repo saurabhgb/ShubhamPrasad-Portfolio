@@ -1,33 +1,18 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* Reset & Fonts */
+* {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
   background-color: #f4f4f4;
   color: #333;
+  transition: all 0.3s ease;
 }
 
-header {
-  background: linear-gradient(to right, #00b4db, #0083b0);
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-section {
-  padding: 20px;
-  margin: 10px;
-  background: white;
-  border-radius: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #0083b0;
-  color: white;
-}
-
+/* Dark Mode */
 .dark-mode {
   background-color: #121212;
   color: #eee;
@@ -38,22 +23,77 @@ footer {
   background: #1e1e1e;
 }
 
-/* Blog Styles */
-#blog-content {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  line-height: 1.7;
-  font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.hero {
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
 }
 
-#blog-content h2,
-#blog-content h3,
-#blog-content h4 {
-  color: #0077cc;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
 }
 
-#blog-content strong {
-  color: #222;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.dark-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.hero-content {
+  margin-top: 30px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: #f9f871;
+}
+
+.tagline {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: white;
+  color: #0083b0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f9f871;
 }
