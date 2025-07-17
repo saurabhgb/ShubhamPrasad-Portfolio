@@ -1,34 +1,19 @@
-/* Reset & Fonts */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
   background-color: #f4f4f4;
   color: #333;
-  transition: all 0.3s ease;
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* Dark Mode */
-.dark-mode {
-  background-color: #121212;
-  color: #eee;
-}
-
-.dark-mode header,
-.dark-mode footer {
-  background: #1e1e1e;
-}
-
+/* Hero/Header Section */
 .hero {
-  background: linear-gradient(to right, #00b4db, #0083b0);
+  background: linear-gradient(135deg, #00b4db, #0083b0);
   color: white;
-  padding: 50px 20px;
+  padding: 60px 20px 40px;
   text-align: center;
-  position: relative;
 }
 
 .navbar {
@@ -36,6 +21,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
+  background: transparent;
 }
 
 .nav-links {
@@ -45,59 +31,146 @@ body {
 }
 
 .nav-links li a {
-  text-decoration: none;
   color: white;
-  font-weight: 500;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  text-decoration: underline;
+  color: #f9f871;
 }
 
-.dark-toggle {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .hero-content {
   margin-top: 30px;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  object-fit: cover;
   border: 4px solid white;
-  margin-bottom: 20px;
-}
-
-.hero-content h1 span {
-  color: #f9f871;
-}
-
-.tagline {
-  font-style: italic;
+  object-fit: cover;
   margin-bottom: 20px;
 }
 
 .btn {
-  background-color: white;
+  background-color: #ffffff;
   color: #0083b0;
   padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
+  border: none;
+  border-radius: 30px;
   font-weight: bold;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
   background-color: #f9f871;
+  color: #333;
 }
-#blog-content {
+
+.dark-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Sections */
+section {
+  padding: 40px 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 12px;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transform: translateY(20px);
+  animation: slideFadeIn 1s ease forwards;
+}
+
+#about {
+  background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+}
+
+#projects {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#blog {
+  background: #f5f5f5;
+}
+
+#contact {
+  background: #263238;
+  color: white;
+}
+
+/* Blog Markdown Styling */
+#blog-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.7;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#blog-content h2, #blog-content h3, #blog-content h4 {
+  color: #0077cc;
+}
+
+#blog-content strong {
+  color: #222;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+.dark-mode .hero,
+.dark-mode .navbar,
+.dark-mode #contact {
+  background: #1e1e1e;
+}
+
+.dark-mode #projects,
+.dark-mode #about,
+.dark-mode #blog {
+  background: #2c2c2c;
+  color: #ddd;
+}
+
+.dark-mode #blog-content {
+  background-color: #1e1e1e;
+  color: #eee;
+  box-shadow: none;
 }
