@@ -362,3 +362,9 @@ section {
   height: 24px;
   animation: spin 1s linear infinite;
 }
+#spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px ;
+}
