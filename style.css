@@ -1,3 +1,7 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -287,19 +291,8 @@ section {
 
 .skill-level {
   height: 100%;
-  width: 0;
+  width: 0%;
+  background: linear-gradient(to right, #7b1fa2, #ba68c8);
   border-radius: 25px;
-  background: #7b1fa2;
-  animation: growSkill 2s ease-in-out forwards;
-}
-
-.skill-level.html { width: 90%; background-color: #e44d26; }
-.skill-level.css { width: 85%; background-color: #1572b6; }
-.skill-level.js { width: 75%; background-color: #f0db4f; }
-.skill-level.react { width: 70%; background-color: #61dafb; }
-.skill-level.node { width: 65%; background-color: #3c873a; }
-
-@keyframes growSkill {
-  from { width: 0; }
-  to { width: var(--final-width); }
+  transition: width 2s ease-in-out;
 }

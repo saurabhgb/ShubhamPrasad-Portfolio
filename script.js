@@ -70,3 +70,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// Animate skill bars when they appear in viewport
+const skillLevels = document.querySelectorAll('.skill-level');
+
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      const width = target.getAttribute('data-skill');
+      target.style.width = width + '%';
+    }
+  });
+}, { threshold: 0.5 });
+
+skillLevels.forEach(skill => {
+  skillObserver.observe(skill);
+});
