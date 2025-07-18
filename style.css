@@ -1,17 +1,29 @@
+/* === Root Variables === */
+:root {
+  --primary-color: #0083b0;
+  --secondary-color: #00b4db;
+  --highlight-color: #f9f871;
+  --dark-bg: #121212;
+  --light-bg: #f4f4f4;
+  --text-dark: #333;
+  --text-light: #fff;
+}
+
+/* === Global Styles === */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
   line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* Hero/Header Section */
+/* === Hero/Header Section === */
 .hero {
-  background: linear-gradient(135deg, #00b4db, #0083b0);
-  color: white;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: var(--text-light);
   padding: 60px 20px 40px;
   text-align: center;
 }
@@ -31,19 +43,19 @@ body {
 }
 
 .nav-links li a {
-  color: white;
+  color: var(--text-light);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .nav-links li a.active {
-  border-bottom: 2px solid #f9f871;
+  border-bottom: 2px solid var(--highlight-color);
   padding-bottom: 2px;
 }
 
 .nav-links li a:hover {
-  color: #f9f871;
+  color: var(--highlight-color);
 }
 
 .logo {
@@ -61,14 +73,14 @@ body {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 4px solid var(--text-light);
   object-fit: cover;
   margin-bottom: 20px;
 }
 
 .btn {
-  background-color: #ffffff;
-  color: #0083b0;
+  background-color: var(--text-light);
+  color: var(--primary-color);
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
@@ -78,8 +90,8 @@ body {
 }
 
 .btn:hover {
-  background-color: #f9f871;
-  color: #333;
+  background-color: var(--highlight-color);
+  color: var(--text-dark);
 }
 
 .dark-toggle {
@@ -89,7 +101,7 @@ body {
   cursor: pointer;
 }
 
-/* Sections */
+/* === Sections === */
 section {
   padding: 40px 20px;
   margin: 20px auto;
@@ -114,12 +126,12 @@ section {
 
 #contact {
   background: #263238;
-  color: white;
+  color: var(--text-light);
 }
 
-/* Blog Markdown Styling */
+/* === Blog Content Styling === */
 #blog-content {
-  background-color: #ffffff;
+  background-color: var(--text-light);
   padding: 20px;
   border-radius: 10px;
   line-height: 1.7;
@@ -127,15 +139,17 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#blog-content h2, #blog-content h3, #blog-content h4 {
-  color: #0077cc;
+#blog-content h2,
+#blog-content h3,
+#blog-content h4 {
+  color: var(--primary-color);
 }
 
 #blog-content strong {
-  color: #222;
+  color: var(--text-dark);
 }
 
-/* Animations */
+/* === Animations === */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -154,9 +168,14 @@ section {
   }
 }
 
-/* Dark Mode */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Dark Mode === */
 .dark-mode {
-  background-color: #121212;
+  background-color: var(--dark-bg);
   color: #eee;
 }
 
@@ -179,12 +198,12 @@ section {
   box-shadow: none;
 }
 
-/* ===== Mobile Nav ===== */
+/* === Mobile Nav === */
 .nav-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: white;
+  color: var(--text-light);
 }
 
 @media screen and (max-width: 768px) {
@@ -197,7 +216,7 @@ section {
     top: 70px;
     left: 0;
     right: 0;
-    background-color: #0083b0;
+    background-color: var(--primary-color);
     flex-direction: column;
     align-items: center;
     display: none;
@@ -221,7 +240,7 @@ section {
 /* === Footer Section === */
 .footer {
   background-color: #111;
-  color: #fff;
+  color: var(--text-light);
   text-align: center;
   padding: 30px 20px;
   margin-top: 40px;
@@ -239,33 +258,35 @@ section {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px; /* Increased gap */
+  gap: 24px;
   margin: 20px 0;
 }
 
 .social-icons a {
-  color: white;
+  color: var(--text-light);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a svg {
   width: 30px;
   height: 30px;
-  fill: white;
+  fill: var(--text-light);
   transition: transform 0.3s ease;
 }
 
 .social-icons a:hover {
   transform: scale(1.2);
-  color: #f9f871;
+  color: var(--highlight-color);
 }
 
 .social-icons a:hover svg {
-  fill: #f9f871;
+  fill: var(--highlight-color);
 }
+
+/* === Skills Section === */
 #skills {
   background: linear-gradient(135deg, #e1bee7, #ce93d8);
-  color: #333;
+  color: var(--text-dark);
 }
 
 .skill {
@@ -292,6 +313,8 @@ section {
   border-radius: 25px;
   transition: width 2s ease-in-out;
 }
+
+/* === Contact Form === */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -309,8 +332,8 @@ section {
 
 .contact-form button {
   padding: 12px;
-  background-color: #f9f871;
-  color: #111;
+  background-color: var(--highlight-color);
+  color: var(--text-dark);
   border: none;
   border-radius: 30px;
   font-weight: bold;
@@ -321,23 +344,21 @@ section {
 .contact-form button:hover {
   background-color: #fff176;
 }
+
 .form-status {
   margin-top: 10px;
   font-weight: 600;
   font-size: 0.95rem;
 }
+
+/* === Loading Spinner === */
 #loading-spinner {
   display: none;
   margin-top: 10px;
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #00b4db;
+  border-top: 4px solid var(--secondary-color);
   border-radius: 50%;
   width: 24px;
   height: 24px;
   animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
