@@ -68,45 +68,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Form submission logic
   if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      const recaptchaResponse = grecaptcha.getResponse();
-      if (!recaptchaResponse) {
-        alert("Please verify you are human by completing the reCAPTCHA.");
-        return;
-      }
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      alert("Please verify you are human by completing the reCAPTCHA.");
+      return;
+    }
 
-      spinner.style.display = "inline-block";
-      status.textContent = "Sending...";
-      status.style.color = "#f9f871";
+    spinner.style.display = "flex";
+    status.textContent = "Sending...";
+    status.style.color = "#f9f871";
 
-      const data = new FormData(form);
+    const data = new FormData(form);
 
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { "Accept": "application/json" }
+    fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { "Accept": "application/json" }
+    })
+      .then(response => {
+        spinner.style.display = "none";
+        if (response.ok) {
+          status.textContent = "✅ Message sent successfully!";
+          status.style.color = "lightgreen";
+          form.reset();
+          grecaptcha.reset();
+        } else {
+          response.json().then(data => {
+            status.textContent = data.error || "❌ Message not sent. Try again.";
+            status.style.color = "red";
+          });
+        }
       })
-        .then(response => {
-          spinner.style.display = "none";
-          if (response.ok) {
-            status.textContent = "✅ Message sent successfully!";
-            status.style.color = "lightgreen";
-            form.reset();
-            grecaptcha.reset();
-          } else {
-            response.json().then(data => {
-              status.textContent = data.error || "❌ Message not sent. Try again.";
-              status.style.color = "red";
-            });
-          }
-        })
-        .catch(() => {
-          spinner.style.display = "none";
-          status.textContent = "❌ Network error. Please try again.";
-          status.style.color = "red";
-        });
-    });
-  }
-});
+      .catch(() => {
+        spinner.style.display = "none";
+        status.textContent = "❌ Network error. Please try again.";
+        status.style.color = "red";
+      });
+  });
+}})

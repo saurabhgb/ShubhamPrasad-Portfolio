@@ -352,16 +352,6 @@ section {
 }
 
 /* === Loading Spinner === */
-#loading-spinner {
-  display: none;
-  margin-top: 10px;
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid var(--secondary-color);
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 1s linear infinite;
-}
 #spinner {
   display: flex;
   justify-content: center;
