@@ -79,10 +79,13 @@ const skillObserver = new IntersectionObserver(entries => {
       const target = entry.target;
       const width = target.getAttribute('data-skill');
       target.style.width = width + '%';
+      // Stop observing once animated
+      skillObserver.unobserve(target);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.2 }); // 👈 updated for better mobile support
 
 skillLevels.forEach(skill => {
   skillObserver.observe(skill);
 });
+
