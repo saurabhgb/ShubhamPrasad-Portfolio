@@ -39,30 +39,28 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
-  gap: 20px;
   text-align: center;
+  margin-top: 30px;
 }
 
-@media (min-width: 768px) {
-  .hero-content {
-    flex-direction: row;
-    text-align: left;
-    justify-content: center;
-  }
-
-  .hero-content img {
-    width: 180px;
-    height: 180px;
-    margin-bottom: 0;
-  }
-
-  .hero-content h1,
-  .hero-content p,
-  .hero-content .btn {
-    text-align: left;
-  }
+.hero-content img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--text-light);
+  object-fit: cover;
+  margin-bottom: 20px;
 }
+
+.hero-content h1 {
+  margin: 10px 0;
+}
+
+.hero-content .btn {
+  margin-top: 10px;
+}
+
+
 .nav-links {
   list-style: none;
   display: flex;
