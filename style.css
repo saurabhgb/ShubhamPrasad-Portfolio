@@ -36,6 +36,10 @@ body {
   font-weight: 600;
   transition: color 0.3s ease;
 }
+.nav-links li a.active {
+  border-bottom: 2px solid #f9f871;
+  padding-bottom: 2px;
+}
 
 .nav-links li a:hover {
   color: #f9f871;
