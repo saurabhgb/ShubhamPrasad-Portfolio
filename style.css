@@ -263,3 +263,43 @@ section {
 .social-icons a:hover svg {
   fill: #f9f871;
 }
+#skills {
+  background: linear-gradient(135deg, #e1bee7, #ce93d8);
+  color: #333;
+}
+
+.skill {
+  margin-bottom: 25px;
+}
+
+.skill span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  background-color: #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.skill-level {
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  background: #7b1fa2;
+  animation: growSkill 2s ease-in-out forwards;
+}
+
+.skill-level.html { width: 90%; background-color: #e44d26; }
+.skill-level.css { width: 85%; background-color: #1572b6; }
+.skill-level.js { width: 75%; background-color: #f0db4f; }
+.skill-level.react { width: 70%; background-color: #61dafb; }
+.skill-level.node { width: 65%; background-color: #3c873a; }
+
+@keyframes growSkill {
+  from { width: 0; }
+  to { width: var(--final-width); }
+}
