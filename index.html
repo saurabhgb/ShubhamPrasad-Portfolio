@@ -7,115 +7,88 @@
   <meta property="og:title" content="Shubham Prasad | Portfolio">
   <meta property="og:image" content="images/profile.jpg">
   <meta property="og:description" content="Frontend + Backend Developer | B.Tech CSE | Dumka Engineering College">
-
   <title>Shubham Prasad | Portfolio</title>
-
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+<header class="hero">
+  <nav class="navbar">
+    <div class="logo">Shubham</div>
+    <div class="nav-toggle">☰</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button onclick="toggleDarkMode()" class="dark-toggle">🌙</button></li>
+    </ul>
+  </nav>
+  <div class="hero-content">
+    <img src="images/profile.jpg" alt="Shubham Prasad" class="profile-pic" />
+    <h1>Hello, I'm <span>Shubham Prasad</span></h1>
+    <p class="tagline">"No goal is bigger than a person's struggle! Growth starts with dreaming."</p>
+    <a href="resume.pdf" class="btn" download>📄 Download Resume</a>
+  </div>
+</header>
 
-  <!-- ======== Header / Hero Section ======== -->
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">Shubham</div>
-      <div class="nav-toggle">☰</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button onclick="toggleDarkMode()" class="dark-toggle">🌙</button></li>
-      </ul>
-    </nav>
+<main>
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m a B.Tech CSE student from Dumka Engineering College passionate about frontend and backend development.</p>
+  </section>
 
-    <div class="hero-content">
-      <img src="images/profile.jpg" alt="Shubham Prasad" class="profile-pic" />
-      <h1>Hello, I'm <span>Shubham Prasad</span></h1>
-      <p class="tagline">"No goal is bigger than a person's struggle! Growth starts with dreaming."</p>
-      <a href="resume.pdf" class="btn" download>📄 Download Resume</a>
-    </div>
-  </header>
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://saurabhgb.github.io/ShubhamPrasad-Portfolio/" target="_blank" rel="noopener">This Portfolio</a></li>
+    </ul>
+  </section>
 
-  <!-- ======== Main Content ======== -->
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m a B.Tech CSE student from Dumka Engineering College passionate about frontend and backend development.</p>
-    </section>
+  <section id="blog" data-aos="fade-up">
+    <h2>Blog</h2>
+    <div id="blog-content">Loading blog...</div>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://saurabhgb.github.io/ShubhamPrasad-Portfolio/" target="_blank" rel="noopener">This Portfolio</a></li>
-        <!-- Add more projects as needed -->
-      </ul>
-    </section>
+  <section id="skills" data-aos="fade-up">
+    <h2>My Skills</h2>
+    <div class="skill"><span>HTML</span><div class="skill-bar"><div class="skill-level" data-skill="90"></div></div></div>
+    <div class="skill"><span>CSS</span><div class="skill-bar"><div class="skill-level" data-skill="85"></div></div></div>
+    <div class="skill"><span>JavaScript</span><div class="skill-bar"><div class="skill-level" data-skill="75"></div></div></div>
+    <div class="skill"><span>React</span><div class="skill-bar"><div class="skill-level" data-skill="70"></div></div></div>
+    <div class="skill"><span>Node.js</span><div class="skill-bar"><div class="skill-level" data-skill="65"></div></div></div>
+  </section>
 
-    <section id="blog">
-      <h2>Blog</h2>
-      <div id="blog-content">Loading blog...</div>
-    </section>
-
-    <section id="skills">
-      <h2>My Skills</h2>
-
-      <div class="skill">
-        <span>HTML</span>
-        <div class="skill-bar"><div class="skill-level" data-skill="90"></div></div>
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <form id="contact-form" action="https://formspree.io/f/mdkzreqy" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <div class="g-recaptcha" data-sitekey="6LeyWocrAAAAAPrHuZZnVZn7o0M2YRxhDgOgvCqI"></div>
+      <div id="spinner">
+        <svg width="32" height="32" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#00b4db">
+          <g fill="none" fill-rule="evenodd">
+            <g transform="translate(1 1)" stroke-width="2">
+              <circle stroke-opacity=".3" cx="18" cy="18" r="18"/>
+              <path d="M36 18c0-9.94-8.06-18-18-18">
+                <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/>
+              </path>
+            </g>
+          </g>
+        </svg>
       </div>
+      <p id="form-status" class="form-status"></p>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</main>
 
-      <div class="skill">
-        <span>CSS</span>
-        <div class="skill-bar"><div class="skill-level" data-skill="85"></div></div>
-      </div>
-
-      <div class="skill">
-        <span>JavaScript</span>
-        <div class="skill-bar"><div class="skill-level" data-skill="75"></div></div>
-      </div>
-
-      <div class="skill">
-        <span>React</span>
-        <div class="skill-bar"><div class="skill-level" data-skill="70"></div></div>
-      </div>
-
-      <div class="skill">
-        <span>Node.js</span>
-        <div class="skill-bar"><div class="skill-level" data-skill="65"></div></div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <form id="contact-form" action="https://formspree.io/f/mdkzreqy" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="_replyto" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-
-        <div class="g-recaptcha" data-sitekey="6LeyWocrAAAAAPrHuZZnVZn7o0M2YRxhDgOgvCqI"></div>
-
-<!-- Spinner -->
-
-
-<!-- Status Message -->
-<p id="status-message"></p>
-
-
-
-        <button type="submit">Send Message</button>
-
-        <div id="loading-spinner"></div>
-        <p id="form-status" class="form-status"></p>
-      </form>
-    </section>
-  </main>
-
-  <!-- ======== Footer with Social Icons ======== -->
-  <footer class="footer">
+<footer class="footer">
   <div class="social-icons">
     <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/shubhamprasadg?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -152,10 +125,12 @@
         </svg>
     </a>
   </div>
+  
+  <p class="footer-text">© 2025 Shubham Prasad. All rights reserved.</p>
+</footer>
 
-    <p class="footer-text">© 2025 Shubham Prasad. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>AOS.init();</script>
 </body>
 </html>
