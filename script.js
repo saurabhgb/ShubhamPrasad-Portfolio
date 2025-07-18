@@ -1,4 +1,3 @@
-// Toggle Dark Mode
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
@@ -10,25 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
-  // Load Blog Markdown
+  // Load Blog
   fetch("blog/my-btech-journey.md")
-    .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.text();
-    })
+    .then(response => response.ok ? response.text() : Promise.reject())
     .then(markdown => {
-      const html = marked.parse(markdown);
-      const blogEl = document.getElementById("blog-content");
-      blogEl.innerHTML = html;
-      blogEl.style.opacity = 1;
+      document.getElementById("blog-content").innerHTML = marked.parse(markdown);
     })
-    .catch(error => {
-      console.error("Error loading blog:", error);
-      const blogContainer = document.getElementById("blog-content");
-      if (blogContainer) blogContainer.textContent = "Could not load blog content.";
+    .catch(() => {
+      document.getElementById("blog-content").textContent = "Could not load blog content.";
     });
 
-  // Animate skill bars
+  // Animate skills
   const skillLevels = document.querySelectorAll(".skill-level");
   const skillObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -38,10 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, { threshold: 0.2 });
-
   skillLevels.forEach(skill => skillObserver.observe(skill));
 
-  // Animate sections on scroll
+  // Animate sections
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -50,17 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll("section").forEach(section => observer.observe(section));
 
-  // Mobile Hamburger Menu Toggle
+  // Mobile nav toggle
   if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
+    navToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
   }
 
-  // Scroll-Based Active Nav Highlight
+  // Scroll active nav highlight
   const sections = document.querySelectorAll("section");
   const navAnchors = document.querySelectorAll(".nav-links li a");
 
@@ -75,14 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     navAnchors.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
+      link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
     });
   });
 
-  // Form Submission with reCAPTCHA and Spinner
+  // Form submission logic
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -93,11 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      if (spinner) spinner.style.display = "inline-block";
-      if (status) {
-        status.textContent = "Sending...";
-        status.style.color = "#f9f871";
-      }
+      spinner.style.display = "inline-block";
+      status.textContent = "Sending...";
+      status.style.color = "#f9f871";
 
       const data = new FormData(form);
 
@@ -107,8 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Accept": "application/json" }
       })
         .then(response => {
-          if (spinner) spinner.style.display = "none";
-
+          spinner.style.display = "none";
           if (response.ok) {
             status.textContent = "✅ Message sent successfully!";
             status.style.color = "lightgreen";
@@ -122,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         })
         .catch(() => {
-          if (spinner) spinner.style.display = "none";
+          spinner.style.display = "none";
           status.textContent = "❌ Network error. Please try again.";
           status.style.color = "red";
         });
