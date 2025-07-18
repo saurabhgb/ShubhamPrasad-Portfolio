@@ -4,6 +4,12 @@ function toggleDarkMode() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const spinner = document.getElementById("loading-spinner");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
   // Load Blog Markdown
   fetch("blog/my-btech-journey.md")
     .then(response => {
@@ -22,26 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
       if (blogContainer) blogContainer.textContent = "Could not load blog content.";
     });
 
-  // Animate sections on scroll
-  const observer = new IntersectionObserver((entries) => {
+  // Animate skill bars
+  const skillLevels = document.querySelectorAll(".skill-level");
+  const skillObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.animation = 'slideFadeIn 1s ease forwards';
+        entry.target.style.width = entry.target.getAttribute("data-skill") + "%";
+        skillObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  skillLevels.forEach(skill => skillObserver.observe(skill));
+
+  // Animate sections on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = "slideFadeIn 1s ease forwards";
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.1,
-  });
+  }, { threshold: 0.1 });
 
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
+  document.querySelectorAll("section").forEach(section => observer.observe(section));
 
   // Mobile Hamburger Menu Toggle
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
-
   if (navToggle && navLinks) {
     navToggle.addEventListener("click", () => {
       navLinks.classList.toggle("show");
@@ -54,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", () => {
     let current = "";
-    sections.forEach((section) => {
+    sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.clientHeight;
       if (scrollY >= sectionTop - sectionHeight / 3) {
@@ -62,30 +74,58 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    navAnchors.forEach((link) => {
+    navAnchors.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === `#${current}`) {
         link.classList.add("active");
       }
     });
   });
+
+  // Form Submission with reCAPTCHA and Spinner
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        alert("Please verify you are human by completing the reCAPTCHA.");
+        return;
+      }
+
+      if (spinner) spinner.style.display = "inline-block";
+      if (status) {
+        status.textContent = "Sending...";
+        status.style.color = "#f9f871";
+      }
+
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { "Accept": "application/json" }
+      })
+        .then(response => {
+          if (spinner) spinner.style.display = "none";
+
+          if (response.ok) {
+            status.textContent = "✅ Message sent successfully!";
+            status.style.color = "lightgreen";
+            form.reset();
+            grecaptcha.reset();
+          } else {
+            response.json().then(data => {
+              status.textContent = data.error || "❌ Message not sent. Try again.";
+              status.style.color = "red";
+            });
+          }
+        })
+        .catch(() => {
+          if (spinner) spinner.style.display = "none";
+          status.textContent = "❌ Network error. Please try again.";
+          status.style.color = "red";
+        });
+    });
+  }
 });
-// Animate skill bars when they appear in viewport
-const skillLevels = document.querySelectorAll('.skill-level');
-
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const target = entry.target;
-      const width = target.getAttribute('data-skill');
-      target.style.width = width + '%';
-      // Stop observing once animated
-      skillObserver.unobserve(target);
-    }
-  });
-}, { threshold: 0.2 }); // 👈 updated for better mobile support
-
-skillLevels.forEach(skill => {
-  skillObserver.observe(skill);
-});
-

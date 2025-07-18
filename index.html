@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -87,9 +88,16 @@
     <input type="text" name="name" placeholder="Your Name" required />
     <input type="email" name="_replyto" placeholder="Your Email" required />
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <div class="g-recaptcha" data-sitekey="6LeyWocrAAAAAPrHuZZnVZn7o0M2YRxhDgOgvCqI"></div>
+
     <button type="submit">Send Message</button>
+
+  <div id="loading-spinner"></div>
+  <p id="form-status" class="form-status"></p>
   </form>
 </section>
+
   </main>
 
  <!-- ======== Footer with Social Icons ======== -->
