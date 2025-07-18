@@ -215,3 +215,40 @@ section {
     flex-wrap: wrap;
   }
 }
+/* Mobile Navbar Toggle */
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #0083b0;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+}
