@@ -37,24 +37,24 @@
 </header>
 
 <main>
-  <section id="about" data-aos="fade-up">
+  <section id="about" class="glass" data-aos="fade-up">
     <h2>About Me</h2>
     <p>I’m a B.Tech CSE student from Dumka Engineering College passionate about frontend and backend development.</p>
   </section>
 
-  <section id="projects" data-aos="fade-up">
+  <section id="projects" class="glass" data-aos="fade-right">
     <h2>Projects</h2>
     <ul>
       <li><a href="https://saurabhgb.github.io/ShubhamPrasad-Portfolio/" target="_blank" rel="noopener">This Portfolio</a></li>
     </ul>
   </section>
 
-  <section id="blog" data-aos="fade-up">
+  <section id="blog" class="glass" data-aos="zoom-in">
     <h2>Blog</h2>
     <div id="blog-content">Loading blog...</div>
   </section>
 
-  <section id="skills" data-aos="fade-up">
+  <section id="skills" class="glass" data-aos="fade-left">
     <h2>My Skills</h2>
     <div class="skill"><span>HTML</span><div class="skill-bar"><div class="skill-level" data-skill="90"></div></div></div>
     <div class="skill"><span>CSS</span><div class="skill-bar"><div class="skill-level" data-skill="85"></div></div></div>
@@ -63,7 +63,7 @@
     <div class="skill"><span>Node.js</span><div class="skill-bar"><div class="skill-level" data-skill="65"></div></div></div>
   </section>
 
-  <section id="contact" data-aos="fade-up">
+  <section id="contact" class="glass" data-aos="flip-up">
     <h2>Contact</h2>
     <form id="contact-form" action="https://formspree.io/f/mdkzreqy" method="POST" class="contact-form">
       <input type="text" name="name" placeholder="Your Name" required />
@@ -131,6 +131,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
-<script>AOS.init();</script>
+<script>
+  AOS.init({
+    duration: 800,       // Animation duration in milliseconds
+    once: true,          // Only animate elements once
+    offset: 100,         // Trigger point before element enters viewport
+    easing: 'ease-in-out' // Smooth animation curve
+  });
+</script>
+
 </body>
 </html>
