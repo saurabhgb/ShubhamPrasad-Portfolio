@@ -54,6 +54,7 @@ body {
 
 .hero-content h1 {
   margin: 10px 0;
+  font-weight: 700; /* 👈 force boldness on all devices */
 }
 
 .hero-content .btn {
