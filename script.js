@@ -150,8 +150,6 @@ skillLevels.forEach(level => {
   observer.observe(level);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const backToTop = document.getElementById("backToTop");
 
 // Show/hide back-to-top button on scroll
 window.addEventListener("scroll", () => {
@@ -169,7 +167,6 @@ document.getElementById("backToTop").addEventListener("click", () => {
     top: 0,
     behavior: "smooth"
   });
-});
 });
 
 // Markdown rendering for blog section
