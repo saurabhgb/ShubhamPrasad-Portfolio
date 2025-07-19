@@ -174,15 +174,6 @@ section {
   .nav-toggle {
     display: block;
   }
-  
-  @media (min-width: 769px) {
-  .nav-links {
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-  }
-}
 
 
   .nav-links {
@@ -192,6 +183,15 @@ section {
 
   .nav-links.show {
     display: flex;
+  }
+}
+
+ @media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
   }
 }
 
