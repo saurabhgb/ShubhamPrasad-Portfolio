@@ -4,7 +4,9 @@ function toggleDarkMode() {
 
 document.addEventListener("DOMContentLoaded", () => {
  // Typing animation
-const tagline = "No goal is bigger than a person's struggle! Growth starts with dreaming.";
+const tagline = window.innerWidth <= 768
+  ? "No goal is bigger than a person's struggle!\nGrowth starts with dreaming."
+  : "No goal is bigger than a person's struggle! Growth starts with dreaming.";
 const taglineEl = document.getElementById("typing-tagline");
 
 let i = 0;
