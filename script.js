@@ -148,7 +148,12 @@ const observer = new IntersectionObserver((entries) => {
 
 skillLevels.forEach(level => {
   observer.observe(level);
-});// Show/hide back-to-top button on scroll
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTop = document.getElementById("backToTop");
+
+// Show/hide back-to-top button on scroll
 window.addEventListener("scroll", () => {
   const btn = document.getElementById("backToTop");
   if (window.scrollY > 300) {
@@ -164,6 +169,7 @@ document.getElementById("backToTop").addEventListener("click", () => {
     top: 0,
     behavior: "smooth"
   });
+});
 });
 
 // Markdown rendering for blog section
