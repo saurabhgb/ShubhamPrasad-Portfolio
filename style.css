@@ -195,7 +195,19 @@ button[type="submit"]:hover {
   box-shadow: 0 0 12px #00b4db, 0 0 20px #00b4db, 0 0 30px #00b4db;
   transform: translateY(-2px);
 }
+@media (max-width: 768px) {
+  .btn,
+  button[type="submit"] {
+    box-shadow: 0 0 12px #00b4db, 0 0 20px #00b4db;
+    transition: all 0.3s ease;
+  }
 
+  .btn:hover,
+  button[type="submit"]:hover {
+    box-shadow: 0 0 20px #00b4db, 0 0 30px #00b4db;
+    transform: translateY(-1px);
+  }
+}
 /* Spinner */
 #spinner {
   display: flex;
