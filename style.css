@@ -404,3 +404,7 @@ button[type="submit"] {
   color: var(--secondary-color);
   text-decoration: underline;
 }
+
+* {
+  outline: 1px solid red;
+}
