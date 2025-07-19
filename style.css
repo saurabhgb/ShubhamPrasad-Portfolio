@@ -8,6 +8,12 @@
   --text-light: #fff;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 /* Background Animation */
 body {
   font-family: 'Poppins', sans-serif;
@@ -380,8 +386,4 @@ button[type="submit"] {
 #blog-content a {
   color: var(--secondary-color);
   text-decoration: underline;
-}
-
-body {
-  overflow-x: hidden;
 }
