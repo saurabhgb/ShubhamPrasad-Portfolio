@@ -301,6 +301,10 @@ button[type="submit"] {
   margin-bottom: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.glass {
+  padding: 40px 30px;
+}
+
 
 .glass:hover {
   transform: translateY(-8px);
@@ -382,6 +386,14 @@ button[type="submit"] {
 #backToTop:hover {
   background: var(--secondary-color);
 }
+#backToTop {
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+#backToTop:hover {
+  transform: scale(1.2);
+}
 
 
 
@@ -394,6 +406,10 @@ button[type="submit"] {
   margin: 0.8em 0;
   line-height: 1.6;
 }
+#blog-content h1, h2, h3 {
+  color: var(--primary-color);
+}
+
 
 #blog-content ul {
   padding-left: 1.2em;
@@ -403,5 +419,14 @@ button[type="submit"] {
 #blog-content a {
   color: var(--secondary-color);
   text-decoration: underline;
+}
+#projects ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+#projects li {
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
