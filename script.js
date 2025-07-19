@@ -131,3 +131,21 @@ window.addEventListener("load", function () {
     preloader.style.display = "none";
   }, 500);
 });
+// Animate skill bars on scroll into view
+const skillLevels = document.querySelectorAll('.skill-level');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const skill = entry.target.getAttribute('data-skill');
+      entry.target.style.width = skill + '%';
+      observer.unobserve(entry.target); // animate only once
+    }
+  });
+}, {
+  threshold: 0.4
+});
+
+skillLevels.forEach(level => {
+  observer.observe(level);
+});
