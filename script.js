@@ -148,20 +148,22 @@ const observer = new IntersectionObserver((entries) => {
 
 skillLevels.forEach(level => {
   observer.observe(level);
-});
-// Show/hide back to top button
-window.addEventListener('scroll', function () {
-  const btn = document.getElementById('backToTop');
+});// Show/hide back-to-top button on scroll
+window.addEventListener("scroll", () => {
+  const btn = document.getElementById("backToTop");
   if (window.scrollY > 300) {
-    btn.style.display = 'block';
+    btn.style.display = "flex";  // use flex to center ↑
   } else {
-    btn.style.display = 'none';
+    btn.style.display = "none";
   }
 });
 
-// Smooth scroll to top
+// Scroll to top on click
 document.getElementById("backToTop").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 });
 
 // Markdown rendering for blog section

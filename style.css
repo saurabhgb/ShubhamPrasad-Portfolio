@@ -337,23 +337,28 @@ button[type="submit"] {
 
 #backToTop {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: none;
+  bottom: 20px;
+  right: 20px;
   background: var(--primary-color);
   color: #fff;
   border: none;
   border-radius: 50%;
-  font-size: 20px;
-  padding: 10px 15px;
+  font-size: 18px;
+  width: 45px;
+  height: 45px;
+  display: none;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 1000;
-  transition: opacity 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
 }
+
 #backToTop:hover {
   background: var(--secondary-color);
 }
+
 
 
 #blog-content h1, #blog-content h2, #blog-content h3 {
