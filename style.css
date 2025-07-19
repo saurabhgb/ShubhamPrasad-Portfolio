@@ -381,3 +381,7 @@ button[type="submit"] {
   color: var(--secondary-color);
   text-decoration: underline;
 }
+
+body {
+  overflow-x: hidden;
+}
