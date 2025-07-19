@@ -3,83 +3,36 @@ function toggleDarkMode() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
- // Typing animation
-const tagline = "No goal is bigger than a person's struggle! Growth starts with dreaming.";
-const taglineEl = document.getElementById("typing-tagline");
+  // Typing Animation
+  const tagline = "No goal is bigger than a person's struggle! Growth starts with dreaming.";
+  const taglineEl = document.getElementById("typing-tagline");
+  let i = 0;
 
-let i = 0;
-function typeTagline() {
-  if (i < tagline.length) {
-    taglineEl.innerHTML += tagline.charAt(i);
-    i++;
-    setTimeout(typeTagline, 50);
+  function typeTagline() {
+    if (i < tagline.length) {
+      taglineEl.innerHTML += tagline.charAt(i);
+      i++;
+      setTimeout(typeTagline, 50);
+    }
   }
-}
-if (taglineEl) typeTagline();
-typeTagline();
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-  const spinner = document.getElementById("spinner");
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
 
-  fetch("blog/my-btech-journey.md")
-    .then((response) => (response.ok ? response.text() : Promise.reject()))
+  if (taglineEl) typeTagline();
+
+  // Blog markdown fetch
+  fetch("my-btech-journey.md")
+    .then((response) => response.text())
     .then((markdown) => {
       document.getElementById("blog-content").innerHTML = marked.parse(markdown);
     })
-    .catch(() => {
-      document.getElementById("blog-content").textContent = "Could not load blog content.";
+    .catch((error) => {
+      document.getElementById("blog-content").innerText = "Failed to load blog.";
+      console.error("Error loading blog:", error);
     });
 
-  const skillLevels = document.querySelectorAll(".skill-level");
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.getAttribute("data-skill") + "%";
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-  skillLevels.forEach((skill) => skillObserver.observe(skill));
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = "slideFadeIn 1s ease forwards";
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll("section").forEach((section) => observer.observe(section));
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
-  }
-
-  const sections = document.querySelectorAll("section");
-  const navAnchors = document.querySelectorAll(".nav-links li a");
-
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (scrollY >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navAnchors.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
-    });
-  });
+  // Contact form handling
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const spinner = document.getElementById("spinner");
 
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -123,59 +76,83 @@ typeTagline();
         });
     });
   }
-});
-window.addEventListener("load", function () {
-  const preloader = document.getElementById("preloader");
-  preloader.style.opacity = "0";
-  setTimeout(() => {
-    preloader.style.display = "none";
-  }, 500);
-});
-// Animate skill bars on scroll into view
-const skillLevels = document.querySelectorAll('.skill-level');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const skill = entry.target.getAttribute('data-skill');
-      entry.target.style.width = skill + '%';
-      observer.unobserve(entry.target); // animate only once
-    }
+  // Nav toggle
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll("section");
+  const navAnchors = document.querySelectorAll(".nav-links li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navAnchors.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+    });
   });
-}, {
-  threshold: 0.4
-});
 
-skillLevels.forEach(level => {
-  observer.observe(level);
-});// Show/hide back-to-top button on scroll
-window.addEventListener("scroll", () => {
-  const btn = document.getElementById("backToTop");
-  if (window.scrollY > 300) {
-    btn.style.display = "flex";  // use flex to center ↑
-  } else {
-    btn.style.display = "none";
+  // Animate skill bars
+  const skillLevels = document.querySelectorAll(".skill-level");
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute("data-skill") + "%";
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  skillLevels.forEach((skill) => skillObserver.observe(skill));
+
+  // Scroll animation on sections
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = "slideFadeIn 1s ease forwards";
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll("section").forEach((section) => observer.observe(section));
+
+  // Back to Top Button
+  const backToTop = document.getElementById("backToTop");
+
+  if (backToTop) {
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "flex" : "none";
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 });
 
-// Scroll to top on click
-document.getElementById("backToTop").addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
-// Markdown rendering for blog section
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("my-btech-journey.md")
-    .then((response) => response.text())
-    .then((markdown) => {
-      const html = marked.parse(markdown);
-      document.getElementById("blog-content").innerHTML = html;
-    })
-    .catch((error) => {
-      document.getElementById("blog-content").innerText = "Failed to load blog.";
-      console.error("Error loading my-btech-journey.md:", error);
-    });
+// Preloader
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500);
+  }
 });
