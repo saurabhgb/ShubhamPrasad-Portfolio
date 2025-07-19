@@ -149,3 +149,30 @@ const observer = new IntersectionObserver((entries) => {
 skillLevels.forEach(level => {
   observer.observe(level);
 });
+// Show/hide back to top button
+window.addEventListener('scroll', function () {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 300) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+
+// Scroll to top when clicked
+document.getElementById('backToTop').addEventListener('click', function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+// Markdown rendering for blog section
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("my-btech-journey.md")
+    .then((response) => response.text())
+    .then((markdown) => {
+      const html = marked.parse(markdown);
+      document.getElementById("blog-content").innerHTML = html;
+    })
+    .catch((error) => {
+      document.getElementById("blog-content").innerText = "Failed to load blog.";
+      console.error("Error loading my-btech-journey.md:", error);
+    });
+});

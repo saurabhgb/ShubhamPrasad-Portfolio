@@ -1,5 +1,5 @@
 ---
-title: "My B.Tech Journey So Far"
+TITLE: "MY B.TECH JOURNEY SO FAR"
 date: 2025-07-17
 summary: "Sharing my real experiences, challenges, and what I’ve learned so far as a CSE student at Dumka Engineering College."
 ---
