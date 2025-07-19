@@ -175,39 +175,64 @@ section {
   }
 }
 
-/* === Button Glow Effect === */
+/* Base button styles */
 .btn,
 button[type="submit"] {
-  background: linear-gradient(135deg, #00b4db, #0083b0);
-  color: white;
+  position: relative;
+  display: inline-block;
   padding: 12px 24px;
-  font-weight: 600;
+  font-weight: bold;
+  color: var(--text-light);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 0 transparent;
-  transition: all 0.4s ease;
-  text-decoration: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
 }
 
-.btn:hover,
-button[type="submit"]:hover {
-  box-shadow: 0 0 12px #00b4db, 0 0 20px #00b4db, 0 0 30px #00b4db;
-  transform: translateY(-2px);
-}
-@media (max-width: 768px) {
-  .btn,
-  button[type="submit"] {
-    box-shadow: 0 0 12px #00b4db, 0 0 20px #00b4db;
-    transition: all 0.3s ease;
-  }
-
+/* Glow for Desktop (on hover) */
+@media (hover: hover) and (pointer: fine) {
   .btn:hover,
   button[type="submit"]:hover {
-    box-shadow: 0 0 20px #00b4db, 0 0 30px #00b4db;
-    transform: translateY(-1px);
+    box-shadow: 0 0 12px var(--secondary-color), 0 0 20px var(--secondary-color);
+    transform: scale(1.03);
   }
 }
+
+/* Glow for Mobile (always pulsing using ::before) */
+@media (hover: none) and (pointer: coarse) {
+  .btn::before,
+  button[type="submit"]::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--highlight-color), transparent 60%);
+    animation: pulseGlow 3s linear infinite;
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+  }
+}
+
 /* Spinner */
 #spinner {
   display: flex;
