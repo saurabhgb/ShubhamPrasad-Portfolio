@@ -3,18 +3,19 @@ function toggleDarkMode() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Typing Animation for Tagline
-const text = `"No goal is bigger than a person's struggle! Growth starts with dreaming."`;
-const typingElement = document.getElementById("typing-tagline");
+ // Typing animation
+const tagline = "No goal is bigger than a person's struggle! Growth starts with dreaming.";
+const taglineEl = document.getElementById("typing-tagline");
 
-let charIndex = 0;
+let i = 0;
 function typeTagline() {
-  if (charIndex < text.length) {
-    typingElement.textContent += text.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeTagline, 50); // typing speed
+  if (i < tagline.length) {
+    taglineEl.innerHTML += tagline.charAt(i);
+    i++;
+    setTimeout(typeTagline, 50);
   }
 }
+if (taglineEl) typeTagline();
 typeTagline();
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
