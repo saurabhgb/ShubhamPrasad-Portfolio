@@ -3,6 +3,19 @@ function toggleDarkMode() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Typing Animation for Tagline
+const text = `"No goal is bigger than a person's struggle! Growth starts with dreaming."`;
+const typingElement = document.getElementById("typing-tagline");
+
+let charIndex = 0;
+function typeTagline() {
+  if (charIndex < text.length) {
+    typingElement.textContent += text.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeTagline, 50); // typing speed
+  }
+}
+typeTagline();
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const spinner = document.getElementById("spinner");
