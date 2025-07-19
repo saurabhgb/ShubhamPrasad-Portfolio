@@ -159,10 +159,11 @@ window.addEventListener('scroll', function () {
   }
 });
 
-// Scroll to top when clicked
-document.getElementById('backToTop').addEventListener('click', function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+// Smooth scroll to top
+document.getElementById("backToTop").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 // Markdown rendering for blog section
 document.addEventListener("DOMContentLoaded", () => {
   fetch("my-btech-journey.md")

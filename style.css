@@ -334,26 +334,28 @@ button[type="submit"] {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 #backToTop {
-  display: none;
   position: fixed;
-  bottom: 40px;
+  bottom: 30px;
   right: 30px;
-  z-index: 100;
-  font-size: 18px;
-  padding: 10px 15px;
+  display: none;
+  background: var(--primary-color);
+  color: #fff;
   border: none;
   border-radius: 50%;
-  background-color: var(--secondary-color);
-  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+#backToTop:hover {
+  background: var(--secondary-color);
 }
 
-#backToTop:hover {
-  background-color: var(--primary-color);
-}
+
 #blog-content h1, #blog-content h2, #blog-content h3 {
   margin-top: 1.5em;
   color: var(--primary-color);
